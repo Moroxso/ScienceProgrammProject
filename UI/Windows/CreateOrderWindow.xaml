@@ -1,0 +1,124 @@
+﻿<Window x:Class="ScienceProgrammProject.UI.Windows.CreateOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
+        mc:Ignorable="d"
+        Title="Создание заказа" Height="620" Width="600"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Background="#d8d9e5" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#afb1c6" CornerRadius="10" Padding="20" Margin="0,0,0,10">
+            <TextBlock Text="Создание нового заказа" 
+                      FontSize="18" 
+                      FontWeight="Bold"
+                      Foreground="#252947"
+                      HorizontalAlignment="Center"/>
+        </Border>
+
+        <Border Grid.Row="1" Background="#afb1c6" CornerRadius="10" Padding="30">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Название конференции*" FontWeight="SemiBold" Foreground="#252947" Margin="0,0,0,5"/>
+                <Border Grid.Row="1" CornerRadius="8" BorderThickness="1" BorderBrush="#bdc3c7" Background="#8a8b9a">
+                    <TextBox x:Name="txtConferenceName" 
+                            Height="40"
+                            Padding="10" 
+                            FontSize="14" 
+                            BorderThickness="0"
+                            Background="Transparent"
+                            FontWeight="Bold"
+                            VerticalContentAlignment="Center"/>
+                </Border>
+
+                <TextBlock Grid.Row="3" Text="Требуемое оборудование*" FontWeight="SemiBold" Foreground="#252947" Margin="0,10,0,5"/>
+                <Border Grid.Row="4" CornerRadius="8" BorderThickness="1" BorderBrush="#bdc3c7" Background="#8a8b9a">
+                    <TextBox x:Name="txtEquipment" 
+                            Height="40"
+                            Padding="10" 
+                            FontSize="14" 
+                            BorderThickness="0"
+                            Background="Transparent"
+                            FontWeight="Bold"
+                            VerticalContentAlignment="Center"/>
+                </Border>
+
+                <TextBlock Grid.Row="6" Text="Количество гостей*" FontWeight="SemiBold" Foreground="#252947" Margin="0,10,0,5"/>
+                <Border Grid.Row="7" CornerRadius="8" BorderThickness="1" BorderBrush="#bdc3c7" Background="#8a8b9a">
+                    <TextBox x:Name="txtGuestsCount" 
+                            Height="40"
+                            Padding="10" 
+                            FontSize="14" 
+                            BorderThickness="0"
+                            Background="Transparent"
+                            Text="0"
+                            FontWeight="Bold"
+                            VerticalContentAlignment="Center"/>
+                </Border>
+
+                <TextBlock Grid.Row="9" Text="Статус оплаты*" FontWeight="SemiBold" Foreground="#252947" Margin="0,10,0,5"/>
+                <Border Grid.Row="10" CornerRadius="8" BorderThickness="1" BorderBrush="#bdc3c7" Background="#8a8b9a">
+                    <ComboBox x:Name="cmbPaymentStatus" 
+                             Height="40"
+                             Padding="10" 
+                             FontSize="14" 
+                             BorderThickness="0"
+                             Background="Transparent"
+                             FontWeight="Bold"
+                             VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="принят" IsSelected="True"/>
+                        <ComboBoxItem Content="оплачен"/>
+                    </ComboBox>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="1" CornerRadius="8" Background="#95a5a6" Margin="0,0,10,0">
+                <Button x:Name="btnCancel" 
+                        Content="Отмена" 
+                        Background="Transparent"
+                        Foreground="White"
+                        Height="40"
+                        Padding="20,0"
+                        FontWeight="SemiBold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="btnCancel_Click"/>
+            </Border>
+
+            <Button x:Name="btnCreate" 
+                    Grid.Column="2"
+                    Content="Создать заказ" 
+                    Style="{StaticResource SuccessButton}"
+                    Cursor="Hand"
+                    Click="btnCreate_Click"/>
+        </Grid>
+    </Grid>
+</Window>

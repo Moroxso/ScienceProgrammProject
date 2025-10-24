@@ -1,0 +1,13 @@
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\ScienceProgrammProject.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\MainWindow.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\UI\Pages\DashboardPage.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\UI\Pages\LoginPage.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\UI\Pages\OrdersPage.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\UI\Pages\ShiftsPage.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\UI\Pages\TechnicianPage.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\UI\Pages\UsersPage.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\App.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\ScienceProgrammProject_Content.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\ScienceProgrammProject_MarkupCompile.cache
+C:\Users\user\Desktop\ScienceProgrammProject\obj\Release\ScienceProgrammProject_MarkupCompile.lref

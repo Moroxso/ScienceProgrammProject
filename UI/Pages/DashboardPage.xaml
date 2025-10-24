@@ -1,0 +1,140 @@
+﻿<Page x:Class="ScienceProgrammProject.UI.Pages.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ScienceProgrammProject.UI.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DashboardPage">
+
+    <Grid Background="#d8d9e5">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20">
+
+                <!-- Приветствие -->
+                <Border Background="#afb1c6" CornerRadius="8" Padding="25" Margin="0,0,0,15">
+                    <TextBlock x:Name="txtWelcome" 
+                              Text="Добро пожаловать!" 
+                              FontSize="24" 
+                              FontWeight="Bold"
+                              Foreground="#252947"/>
+                </Border>
+
+                <!-- Статистика -->
+                <TextBlock Text="Статистика" 
+                          FontSize="18" 
+                          FontWeight="Bold"
+                          Foreground="#252947"
+                          Margin="0,0,0,10"/>
+
+                <WrapPanel>
+                    <!-- Карточка заказов -->
+                    <Border Background="#afb1c6" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="200">
+                        <StackPanel>
+                            <TextBlock Text="Всего заказов" 
+                                      Foreground="#5f606b"
+                                      FontSize="14"/>
+                            <TextBlock x:Name="txtTotalOrders" 
+                                      Text="0" 
+                                      FontSize="24" 
+                                      FontWeight="Bold"
+                                      Foreground="#252947"
+                                      Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Карточка активных заказов -->
+                    <Border Background="#afb1c6" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="200">
+                        <StackPanel>
+                            <TextBlock Text="Активные заказы" 
+                                      Foreground="#5f606b"
+                                      FontSize="14"/>
+                            <TextBlock x:Name="txtActiveOrders" 
+                                      Text="0" 
+                                      FontSize="24" 
+                                      FontWeight="Bold"
+                                      Foreground="#889a3f"
+                                      Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Карточка готовых заказов -->
+                    <Border Background="#afb1c6" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="200">
+                        <StackPanel>
+                            <TextBlock Text="Готовые заказы" 
+                                      Foreground="#5f606b"
+                                      FontSize="14"/>
+                            <TextBlock x:Name="txtReadyOrders" 
+                                      Text="0" 
+                                      FontSize="24" 
+                                      FontWeight="Bold"
+                                      Foreground="#40498f"
+                                      Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+
+                <!-- Быстрые действия -->
+                <TextBlock Text="Быстрые действия" 
+                          FontSize="18" 
+                          FontWeight="Bold"
+                          Foreground="#252947"
+                          Margin="0,20,0,10"/>
+
+                <WrapPanel>
+                    <Border Background="#afb1c6" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="180">
+                        <Button x:Name="btnQuickOrders" 
+                                Content="📋 Заказы" 
+                                Background="Transparent"
+                                Foreground="#5f606b"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Click="btnQuickOrders_Click"/>
+                    </Border>
+
+                    <!-- Для организатора -->
+                    <Border x:Name="borderQuickCreate" 
+                            Background="White" 
+                            CornerRadius="8" 
+                            Padding="20" 
+                            Margin="0,0,10,10" 
+                            Width="180"
+                            Visibility="Collapsed">
+                        <Button x:Name="btnQuickCreateOrder" 
+                                Content="➕ Создать заказ" 
+                                Background="Transparent"
+                                Foreground="#2c3e50"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Click="btnQuickCreateOrder_Click"/>
+                    </Border>
+
+                    <!-- Для заведующего -->
+                    <Border x:Name="borderQuickUsers" 
+                            Background="White" 
+                            CornerRadius="8" 
+                            Padding="20" 
+                            Margin="0,0,10,10" 
+                            Width="180"
+                            Visibility="Collapsed">
+                        <Button x:Name="btnQuickUsers" 
+                                Content="👥 Сотрудники" 
+                                Background="Transparent"
+                                Foreground="#2c3e50"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Click="btnQuickUsers_Click"/>
+                    </Border>
+                </WrapPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

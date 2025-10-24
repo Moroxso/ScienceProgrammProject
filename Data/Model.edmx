@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ScienceProgrammProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="datecreation" Type="date" Nullable="false" />
+          <Property Name="orderstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="paymentstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nameconference" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="equipment" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="amountguests" Type="int" Nullable="false" />
+          <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderuserlist">
+          <Key>
+            <PropertyRef Name="orderuserlistid" />
+          </Key>
+          <Property Name="orderuserlistid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="orderid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="shift">
+          <Key>
+            <PropertyRef Name="shiftid" />
+          </Key>
+          <Property Name="shiftid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datestart" Type="date" Nullable="false" />
+          <Property Name="dateend" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="middlename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userroleid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userlist">
+          <Key>
+            <PropertyRef Name="userlistid" />
+          </Key>
+          <Property Name="userlistid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="shiftid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="userroleid" />
+          </Key>
+          <Property Name="userroleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namerole" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="orderuserlist___fk">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="orderuserlist" Type="Self.orderuserlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="orderuserlist">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="orderuserlist___fk_2">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="orderuserlist" Type="Self.orderuserlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="orderid" />
+            </Principal>
+            <Dependent Role="orderuserlist">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user___fk">
+          <End Role="userrole" Type="Self.userrole" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userrole">
+              <PropertyRef Name="userroleid" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="userroleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userlist___fk">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="userlist" Type="Self.userlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="userlist">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userlist___fk_2">
+          <End Role="shift" Type="Self.shift" Multiplicity="1" />
+          <End Role="userlist" Type="Self.userlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shift">
+              <PropertyRef Name="shiftid" />
+            </Principal>
+            <Dependent Role="userlist">
+              <PropertyRef Name="shiftid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ScienceProgrammProjectModelContainer">
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderuserlist" EntityType="Self.orderuserlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shift" EntityType="Self.shift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userlist" EntityType="Self.userlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userrole" EntityType="Self.userrole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="orderuserlist___fk" Association="Self.orderuserlist___fk">
+            <End Role="user" EntitySet="user" />
+            <End Role="orderuserlist" EntitySet="orderuserlist" />
+          </AssociationSet>
+          <AssociationSet Name="orderuserlist___fk_2" Association="Self.orderuserlist___fk_2">
+            <End Role="order" EntitySet="order" />
+            <End Role="orderuserlist" EntitySet="orderuserlist" />
+          </AssociationSet>
+          <AssociationSet Name="user___fk" Association="Self.user___fk">
+            <End Role="userrole" EntitySet="userrole" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="userlist___fk" Association="Self.userlist___fk">
+            <End Role="user" EntitySet="user" />
+            <End Role="userlist" EntitySet="userlist" />
+          </AssociationSet>
+          <AssociationSet Name="userlist___fk_2" Association="Self.userlist___fk_2">
+            <End Role="shift" EntitySet="shift" />
+            <End Role="userlist" EntitySet="userlist" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ScienceProgrammProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="datecreation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="orderstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="paymentstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nameconference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="equipment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amountguests" Type="Int32" Nullable="false" />
+          <Property Name="orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="orderuserlist" Relationship="Self.orderuserlist___fk_2" FromRole="order" ToRole="orderuserlist" />
+        </EntityType>
+        <EntityType Name="orderuserlist">
+          <Key>
+            <PropertyRef Name="orderuserlistid" />
+          </Key>
+          <Property Name="orderuserlistid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="orderid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="order" Relationship="Self.orderuserlist___fk_2" FromRole="orderuserlist" ToRole="order" />
+          <NavigationProperty Name="user" Relationship="Self.orderuserlist___fk" FromRole="orderuserlist" ToRole="user" />
+        </EntityType>
+        <EntityType Name="shift">
+          <Key>
+            <PropertyRef Name="shiftid" />
+          </Key>
+          <Property Name="shiftid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datestart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dateend" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="userlist" Relationship="Self.userlist___fk_2" FromRole="shift" ToRole="userlist" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userroleid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="orderuserlist" Relationship="Self.orderuserlist___fk" FromRole="user" ToRole="orderuserlist" />
+          <NavigationProperty Name="userrole" Relationship="Self.user___fk" FromRole="user" ToRole="userrole" />
+          <NavigationProperty Name="userlist" Relationship="Self.userlist___fk" FromRole="user" ToRole="userlist" />
+        </EntityType>
+        <EntityType Name="userlist">
+          <Key>
+            <PropertyRef Name="userlistid" />
+          </Key>
+          <Property Name="userlistid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="shiftid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="shift" Relationship="Self.userlist___fk_2" FromRole="userlist" ToRole="shift" />
+          <NavigationProperty Name="user" Relationship="Self.userlist___fk" FromRole="userlist" ToRole="user" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="userroleid" />
+          </Key>
+          <Property Name="userroleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namerole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.user___fk" FromRole="userrole" ToRole="user" />
+        </EntityType>
+        <Association Name="orderuserlist___fk_2">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="orderuserlist" Type="Self.orderuserlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="orderid" />
+            </Principal>
+            <Dependent Role="orderuserlist">
+              <PropertyRef Name="orderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="orderuserlist___fk">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="orderuserlist" Type="Self.orderuserlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="orderuserlist">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userlist___fk_2">
+          <End Role="shift" Type="Self.shift" Multiplicity="1" />
+          <End Role="userlist" Type="Self.userlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shift">
+              <PropertyRef Name="shiftid" />
+            </Principal>
+            <Dependent Role="userlist">
+              <PropertyRef Name="shiftid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user___fk">
+          <End Role="userrole" Type="Self.userrole" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userrole">
+              <PropertyRef Name="userroleid" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="userroleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userlist___fk">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="userlist" Type="Self.userlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="userlist">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ScienceProgrammProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="order" EntityType="Self.order" />
+          <EntitySet Name="orderuserlist" EntityType="Self.orderuserlist" />
+          <EntitySet Name="shift" EntityType="Self.shift" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <EntitySet Name="userlist" EntityType="Self.userlist" />
+          <EntitySet Name="userrole" EntityType="Self.userrole" />
+          <AssociationSet Name="orderuserlist___fk_2" Association="Self.orderuserlist___fk_2">
+            <End Role="order" EntitySet="order" />
+            <End Role="orderuserlist" EntitySet="orderuserlist" />
+          </AssociationSet>
+          <AssociationSet Name="orderuserlist___fk" Association="Self.orderuserlist___fk">
+            <End Role="user" EntitySet="user" />
+            <End Role="orderuserlist" EntitySet="orderuserlist" />
+          </AssociationSet>
+          <AssociationSet Name="userlist___fk_2" Association="Self.userlist___fk_2">
+            <End Role="shift" EntitySet="shift" />
+            <End Role="userlist" EntitySet="userlist" />
+          </AssociationSet>
+          <AssociationSet Name="user___fk" Association="Self.user___fk">
+            <End Role="userrole" EntitySet="userrole" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="userlist___fk" Association="Self.userlist___fk">
+            <End Role="user" EntitySet="user" />
+            <End Role="userlist" EntitySet="userlist" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ScienceProgrammProjectModelContainer" CdmEntityContainer="ScienceProgrammProjectEntities">
+          <EntitySetMapping Name="order">
+            <EntityTypeMapping TypeName="ScienceProgrammProjectModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="datecreation" ColumnName="datecreation" />
+                <ScalarProperty Name="orderstatus" ColumnName="orderstatus" />
+                <ScalarProperty Name="paymentstatus" ColumnName="paymentstatus" />
+                <ScalarProperty Name="nameconference" ColumnName="nameconference" />
+                <ScalarProperty Name="equipment" ColumnName="equipment" />
+                <ScalarProperty Name="amountguests" ColumnName="amountguests" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderuserlist">
+            <EntityTypeMapping TypeName="ScienceProgrammProjectModel.orderuserlist">
+              <MappingFragment StoreEntitySet="orderuserlist">
+                <ScalarProperty Name="orderuserlistid" ColumnName="orderuserlistid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shift">
+            <EntityTypeMapping TypeName="ScienceProgrammProjectModel.shift">
+              <MappingFragment StoreEntitySet="shift">
+                <ScalarProperty Name="shiftid" ColumnName="shiftid" />
+                <ScalarProperty Name="datestart" ColumnName="datestart" />
+                <ScalarProperty Name="dateend" ColumnName="dateend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="ScienceProgrammProjectModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userlist">
+            <EntityTypeMapping TypeName="ScienceProgrammProjectModel.userlist">
+              <MappingFragment StoreEntitySet="userlist">
+                <ScalarProperty Name="userlistid" ColumnName="userlistid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="shiftid" ColumnName="shiftid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userrole">
+            <EntityTypeMapping TypeName="ScienceProgrammProjectModel.userrole">
+              <MappingFragment StoreEntitySet="userrole">
+                <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+                <ScalarProperty Name="namerole" ColumnName="namerole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

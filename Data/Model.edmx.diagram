@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0eb6b4d5d494421cbf7fb613db759440" Name="Diagram1">
+        <EntityTypeShape EntityType="ScienceProgrammProjectModel.order" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScienceProgrammProjectModel.orderuserlist" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScienceProgrammProjectModel.shift" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScienceProgrammProjectModel.user" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScienceProgrammProjectModel.userlist" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScienceProgrammProjectModel.userrole" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="ScienceProgrammProjectModel.orderuserlist___fk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="ScienceProgrammProjectModel.orderuserlist___fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ScienceProgrammProjectModel.userlist___fk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="ScienceProgrammProjectModel.user___fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ScienceProgrammProjectModel.userlist___fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

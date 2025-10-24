@@ -1,0 +1,239 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\windows\\assigntoshiftwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\windows\\assigntoshiftwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|c:\\users\\chihc\\downloads\\scienceprogrammproject\\ui\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\windows\\adduserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\windows\\adduserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\windows\\createorderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\windows\\createorderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\pages\\technicianpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\pages\\technicianpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\pages\\userspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\pages\\userspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\pages\\shiftspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\pages\\shiftspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\pages\\orderspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\pages\\orderspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\ui\\pages\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:ui\\pages\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\core\\scripts\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:core\\scripts\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\core\\datascripts\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B3EEC099-9ED5-4CD0-B303-180D83268D2F}|ScienceProgrammProject.csproj|solutionrelative:core\\datascripts\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": []
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "UI\\Pages\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\LoginPage.xaml",
+              "RelativeToolTip": "UI\\Pages\\LoginPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T11:21:45.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\Core\\Scripts\\README.txt",
+              "RelativeDocumentMoniker": "Core\\Scripts\\README.txt",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\Core\\Scripts\\README.txt",
+              "RelativeToolTip": "Core\\Scripts\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-24T08:38:13.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\Core\\DataScripts\\README.txt",
+              "RelativeDocumentMoniker": "Core\\DataScripts\\README.txt",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\Core\\DataScripts\\README.txt",
+              "RelativeToolTip": "Core\\DataScripts\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-24T08:37:05.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AssignToShiftWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Windows\\AssignToShiftWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Windows\\AssignToShiftWindow.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Windows\\AssignToShiftWindow.xaml",
+              "RelativeToolTip": "UI\\Windows\\AssignToShiftWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T08:29:36.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddUserWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Windows\\AddUserWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Windows\\AddUserWindow.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Windows\\AddUserWindow.xaml",
+              "RelativeToolTip": "UI\\Windows\\AddUserWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T08:22:11.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateOrderWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Windows\\CreateOrderWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Windows\\CreateOrderWindow.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Windows\\CreateOrderWindow.xaml",
+              "RelativeToolTip": "UI\\Windows\\CreateOrderWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T07:56:23.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TechnicianPage.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\TechnicianPage.xaml",
+              "RelativeDocumentMoniker": "UI\\Pages\\TechnicianPage.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\TechnicianPage.xaml",
+              "RelativeToolTip": "UI\\Pages\\TechnicianPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T07:17:57.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersPage.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\UsersPage.xaml",
+              "RelativeDocumentMoniker": "UI\\Pages\\UsersPage.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\UsersPage.xaml",
+              "RelativeToolTip": "UI\\Pages\\UsersPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T06:55:17.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShiftsPage.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\ShiftsPage.xaml",
+              "RelativeDocumentMoniker": "UI\\Pages\\ShiftsPage.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\ShiftsPage.xaml",
+              "RelativeToolTip": "UI\\Pages\\ShiftsPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T06:55:08.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OrdersPage.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\OrdersPage.xaml",
+              "RelativeDocumentMoniker": "UI\\Pages\\OrdersPage.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\OrdersPage.xaml",
+              "RelativeToolTip": "UI\\Pages\\OrdersPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T06:55:00.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DashboardPage.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\DashboardPage.xaml",
+              "RelativeDocumentMoniker": "UI\\Pages\\DashboardPage.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\UI\\Pages\\DashboardPage.xaml",
+              "RelativeToolTip": "UI\\Pages\\DashboardPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T06:54:50.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-24T06:38:52.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\chihc\\Downloads\\ScienceProgrammProject\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAUwHAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T06:33:34.125Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
