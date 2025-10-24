@@ -1,0 +1,96 @@
+﻿<Window x:Class="ScienceProgrammProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScienceProgrammProject"
+        mc:Ignorable="d"
+        Title="Система управления научными конференциями" Height="700" Width="1200" WindowStartupLocation="CenterScreen">
+
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель инструментов -->
+        <Border Grid.Row="0" Background="#2c3e50" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Логотип и название -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="🎯" FontSize="20" Margin="0,0,10,0"/>
+                    <TextBlock Text="Конференции+" 
+                               Foreground="White" 
+                               FontSize="18" 
+                               FontWeight="Bold"/>
+                </StackPanel>
+
+                <!-- Основное меню навигации -->
+                <StackPanel Grid.Column="1" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <Button x:Name="btnDashboard" 
+                            Content="Главная" 
+                            Style="{StaticResource WebLikeToolbarButton}"
+                            Foreground="White"
+                            Click="btnDashboard_Click"/>
+
+                    <Button x:Name="btnOrders" 
+                            Content="Заказы" 
+                            Style="{StaticResource WebLikeToolbarButton}"
+                            Foreground="White"
+                            Click="btnOrders_Click"/>
+
+                    <Button x:Name="btnShifts" 
+                            Content="Смены" 
+                            Style="{StaticResource WebLikeToolbarButton}"
+                            Foreground="White"
+                            Click="btnShifts_Click"/>
+
+                    <Button x:Name="btnUsers" 
+                            Content="Сотрудники" 
+                            Style="{StaticResource WebLikeToolbarButton}"
+                            Foreground="White"
+                            Click="btnUsers_Click"/>
+                </StackPanel>
+
+                <!-- Информация о пользователе -->
+                <StackPanel Grid.Column="2" 
+                            Orientation="Horizontal" 
+                            VerticalAlignment="Center">
+                    <TextBlock x:Name="txtUserInfo" 
+                               Text="Не авторизован" 
+                               Foreground="White" 
+                               Margin="0,0,15,0"
+                               VerticalAlignment="Center"/>
+                    <Button x:Name="btnLogout" 
+                            Content="Выйти" 
+                            Style="{StaticResource WebLikeToolbarButton}"
+                            Foreground="White"
+                            Click="btnLogout_Click"
+                            Visibility="Collapsed"/>
+                    <Button x:Name="btnLogin" 
+                            Content="Войти" 
+                            Style="{StaticResource WebLikeToolbarButton}"
+                            Foreground="White"
+                            Click="btnLogin_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Область контента для страниц -->
+        <Frame x:Name="MainContentFrame"
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden"
+               Background="#ecf0f1"/>
+    </Grid>
+</Window>

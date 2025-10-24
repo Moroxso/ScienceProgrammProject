@@ -1,0 +1,148 @@
+﻿<Page x:Class="ScienceProgrammProject.UI.Pages.UsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ScienceProgrammProject.UI.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UsersPage">
+
+    <Grid Background="#ecf0f1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок и кнопки -->
+        <Border Grid.Row="0" Background="White" Padding="20" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" 
+                          Text="Управление сотрудниками" 
+                          FontSize="20" 
+                          FontWeight="Bold"
+                          Foreground="#2c3e50"
+                          VerticalAlignment="Center"/>
+
+                <Button x:Name="btnAddUser" 
+                        Grid.Column="1" 
+                        Content="➕ Добавить сотрудника" 
+                        Background="#27ae60"
+                        Foreground="White"
+                        Height="40"
+                        Padding="15,5"
+                        FontWeight="SemiBold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="btnAddUser_Click"
+                        Margin="0,0,10,0"/>
+
+                <Button x:Name="btnRefresh" 
+                        Grid.Column="2" 
+                        Content="🔄 Обновить" 
+                        Background="#3498db"
+                        Foreground="White"
+                        Height="40"
+                        Padding="15,5"
+                        FontWeight="SemiBold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="btnRefresh_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- Список сотрудников -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
+            <ItemsControl x:Name="UsersItemsControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="White" CornerRadius="8" Padding="20" Margin="10" BorderThickness="1" BorderBrush="#e0e0e0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Информация о сотруднике -->
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="{Binding lastname}" 
+                                               FontSize="16" 
+                                               FontWeight="Bold"
+                                               Foreground="#2c3e50"/>
+                                    <TextBlock Text="{Binding firstname}" 
+                                               FontSize="14"
+                                               Foreground="#2c3e50"
+                                               Margin="0,2,0,0"/>
+                                    <TextBlock Text="{Binding middlename}" 
+                                               FontSize="14"
+                                               Foreground="#2c3e50"
+                                               Margin="0,2,0,0"/>
+                                    <TextBlock Text="{Binding userrole.namerole}" 
+                                               Foreground="#7f8c8d"
+                                               Margin="0,5,0,0"/>
+                                    <TextBlock Text="{Binding login, StringFormat='Логин: {0}'}" 
+                                               Foreground="#7f8c8d"/>
+                                </StackPanel>
+
+                                <!-- Статус сотрудника -->
+                                <Border Grid.Column="1" 
+                                        CornerRadius="4" 
+                                        Padding="8,4"
+                                        Margin="0,0,10,0"
+                                        VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding status}" 
+                                               Foreground="White" 
+                                               FontWeight="Bold"
+                                               FontSize="12"/>
+                                </Border>
+
+                                <!-- Кнопки действий -->
+                                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Button Content="Уволить" 
+                                            Background="#e74c3c"
+                                            Foreground="White"
+                                            Height="35"
+                                            Padding="15,5"
+                                            FontWeight="SemiBold"
+                                            BorderThickness="0"
+                                            Cursor="Hand"
+                                            Click="FireEmployee"
+                                            Tag="{Binding userid}"
+                                            Margin="0,0,5,0"/>
+
+                                    <Button Content="Изменить" 
+                                            Background="#3498db"
+                                            Foreground="White"
+                                            Height="35"
+                                            Padding="15,5"
+                                            FontWeight="SemiBold"
+                                            BorderThickness="0"
+                                            Cursor="Hand"
+                                            Click="EditEmployee"
+                                            Tag="{Binding userid}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <!-- Сообщение если нет сотрудников -->
+        <TextBlock x:Name="txtNoUsers" 
+                   Grid.Row="1"
+                   Text="Нет сотрудников" 
+                   FontSize="16"
+                   Foreground="#7f8c8d"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visibility="Collapsed"/>
+    </Grid>
+</Page>

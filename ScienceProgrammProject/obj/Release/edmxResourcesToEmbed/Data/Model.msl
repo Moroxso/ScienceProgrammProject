@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ScienceProgrammProjectModelContainer" CdmEntityContainer="ScienceProgrammProjectEntities">
+    <EntitySetMapping Name="order">
+      <EntityTypeMapping TypeName="ScienceProgrammProjectModel.order">
+        <MappingFragment StoreEntitySet="order">
+          <ScalarProperty Name="datecreation" ColumnName="datecreation" />
+          <ScalarProperty Name="orderstatus" ColumnName="orderstatus" />
+          <ScalarProperty Name="paymentstatus" ColumnName="paymentstatus" />
+          <ScalarProperty Name="nameconference" ColumnName="nameconference" />
+          <ScalarProperty Name="equipment" ColumnName="equipment" />
+          <ScalarProperty Name="amountguests" ColumnName="amountguests" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderuserlist">
+      <EntityTypeMapping TypeName="ScienceProgrammProjectModel.orderuserlist">
+        <MappingFragment StoreEntitySet="orderuserlist">
+          <ScalarProperty Name="orderuserlistid" ColumnName="orderuserlistid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shift">
+      <EntityTypeMapping TypeName="ScienceProgrammProjectModel.shift">
+        <MappingFragment StoreEntitySet="shift">
+          <ScalarProperty Name="shiftid" ColumnName="shiftid" />
+          <ScalarProperty Name="datestart" ColumnName="datestart" />
+          <ScalarProperty Name="dateend" ColumnName="dateend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="ScienceProgrammProjectModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlist">
+      <EntityTypeMapping TypeName="ScienceProgrammProjectModel.userlist">
+        <MappingFragment StoreEntitySet="userlist">
+          <ScalarProperty Name="userlistid" ColumnName="userlistid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="shiftid" ColumnName="shiftid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userrole">
+      <EntityTypeMapping TypeName="ScienceProgrammProjectModel.userrole">
+        <MappingFragment StoreEntitySet="userrole">
+          <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+          <ScalarProperty Name="namerole" ColumnName="namerole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
