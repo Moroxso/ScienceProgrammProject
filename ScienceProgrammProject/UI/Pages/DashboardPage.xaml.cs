@@ -1,4 +1,5 @@
-﻿using ScienceProgrammProject.Data;
+﻿using ScienceProgrammProject.Core.Services;
+using ScienceProgrammProject.Data;
 using ScienceProgrammProject.UI.Windows;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,18 @@ namespace ScienceProgrammProject.UI.Pages
             txtTotalOrders.Text = orders.Count.ToString();
             txtActiveOrders.Text = orders.Count(o => o.orderstatus == "принят" || o.orderstatus == "готовится").ToString();
             txtReadyOrders.Text = orders.Count(o => o.orderstatus == "готов").ToString();
+
+            var shiftService = new ShiftService(_context);
+            var currentShift = shiftService.GetCurrentShiftForUser(_currentUser.userid);
+
+            if (currentShift != null)
+            {
+                txtWelcome.Text += $"\nАктивная смена: {currentShift.datestart:dd.MM.yyyy} - {currentShift.dateend:dd.MM.yyyy}";
+            }
+            else
+            {
+                txtWelcome.Text += "\n⚠️ Нет активной смены";
+            }
 
             // Настройка быстрых действий по ролям
             switch (_currentUser.userroleid)

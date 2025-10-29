@@ -19,25 +19,6 @@
                 </Style.Triggers>
             </Style>
 
-            <!-- Стиль для карточек -->
-            <Style x:Key="ModernCard" TargetType="Border">
-                <Setter Property="Background" Value="White"/>
-                <Setter Property="CornerRadius" Value="8"/>
-                <Setter Property="BorderBrush" Value="#e0e0e0"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="Padding" Value="20"/>
-                <Setter Property="Margin" Value="10"/>
-            </Style>
-
-            <!-- Стиль для текстовых полей в карточках -->
-            <Style x:Key="ModernTextBox" TargetType="TextBox">
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="Padding" Value="10"/>
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="BorderBrush" Value="#bdc3c7"/>
-                <Setter Property="Background" Value="White"/>
-            </Style>
 
             <!-- Стиль для кнопок действий -->
             <Style x:Key="ActionButton" TargetType="Button">
@@ -50,17 +31,54 @@
                 <Setter Property="Cursor" Value="Hand"/>
             </Style>
 
-            <!-- Конкретные цвета для кнопок -->
-            <Style x:Key="PrimaryButton" BasedOn="{StaticResource ActionButton}" TargetType="Button">
-                <Setter Property="Background" Value="#3498db"/>
+
+
+            <!-- Цветовая палитра -->
+            <Color x:Key="PrimaryColor">#2c3e50</Color>
+            <Color x:Key="SecondaryColor">#3498db</Color>
+            <Color x:Key="SuccessColor">#27ae60</Color>
+            <Color x:Key="WarningColor">#f39c12</Color>
+            <Color x:Key="DangerColor">#e74c3c</Color>
+            <Color x:Key="LightColor">#ecf0f1</Color>
+            <Color x:Key="DarkColor">#34495e</Color>
+
+            <!-- Стиль для карточек -->
+            <Style x:Key="ModernCard" TargetType="Border">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="BorderBrush" Value="#e0e0e0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="Margin" Value="10"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#2980b9"/>
+                        <Setter Property="BorderBrush" Value="#3498db"/>
+                        <Setter Property="Background" Value="#f8f9fa"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="SuccessButton" BasedOn="{StaticResource ActionButton}" TargetType="Button">
+            <!-- Стиль для основных кнопок -->
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Padding" Value="20,0"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#2980b9"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Background" Value="#bdc3c7"/>
+                        <Setter Property="Foreground" Value="#7f8c8d"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Стиль для успешных кнопок -->
+            <Style x:Key="SuccessButton" BasedOn="{StaticResource PrimaryButton}" TargetType="Button">
                 <Setter Property="Background" Value="#27ae60"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
@@ -69,7 +87,8 @@
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="DangerButton" BasedOn="{StaticResource ActionButton}" TargetType="Button">
+            <!-- Стиль для опасных кнопок -->
+            <Style x:Key="DangerButton" BasedOn="{StaticResource PrimaryButton}" TargetType="Button">
                 <Setter Property="Background" Value="#e74c3c"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
@@ -77,6 +96,79 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+
+            <!-- Стиль для второстепенных кнопок -->
+            <Style x:Key="SecondaryButton" BasedOn="{StaticResource PrimaryButton}" TargetType="Button">
+                <Setter Property="Background" Value="#95a5a6"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#7f8c8d"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Анимированная кнопка -->
+            <Style x:Key="AnimatedButton" BasedOn="{StaticResource PrimaryButton}" TargetType="Button">
+                <Setter Property="Background" Value="#3498db"/>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4"
+                                Padding="{TemplateBinding Padding}">
+                                <Border.RenderTransform>
+                                    <ScaleTransform x:Name="scaleTransform" ScaleX="1" ScaleY="1"/>
+                                </Border.RenderTransform>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="scaleTransform" 
+                                                           Storyboard.TargetProperty="ScaleX"
+                                                           To="1.05" Duration="0:0:0.1"/>
+                                                <DoubleAnimation Storyboard.TargetName="scaleTransform" 
+                                                           Storyboard.TargetProperty="ScaleY"
+                                                           To="1.05" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="scaleTransform" 
+                                                           Storyboard.TargetProperty="ScaleX"
+                                                           To="1" Duration="0:0:0.1"/>
+                                                <DoubleAnimation Storyboard.TargetName="scaleTransform" 
+                                                           Storyboard.TargetProperty="ScaleY"
+                                                           To="1" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Стиль для текстовых полей -->
+            <Style x:Key="ModernTextBox" TargetType="TextBox">
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+
+            <!-- Стиль для полей ввода в карточках -->
+            <Style x:Key="InputField" TargetType="Grid">
+                <Setter Property="Margin" Value="0,0,0,15"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

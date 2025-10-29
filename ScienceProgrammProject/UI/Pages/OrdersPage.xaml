@@ -42,51 +42,73 @@
             <ItemsControl x:Name="OrdersItemsControl">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border Style="{StaticResource ModernCard}">
+                        <Border Background="White" CornerRadius="8" Padding="20" Margin="10" BorderThickness="1" BorderBrush="#e0e0e0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
+                                <!-- Информация о заказе -->
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="{Binding nameconference}" 
-                                               FontSize="16" 
-                                               FontWeight="Bold"
-                                               Foreground="#2c3e50"/>
+                       FontSize="16" 
+                       FontWeight="Bold"
+                       Foreground="#2c3e50"/>
                                     <TextBlock Text="{Binding datecreation, StringFormat='Дата создания: {0:dd.MM.yyyy}'}" 
-                                               Foreground="#7f8c8d"
-                                               Margin="0,5,0,0"/>
+                       Foreground="#7f8c8d"
+                       Margin="0,5,0,0"/>
                                     <TextBlock Text="{Binding equipment, StringFormat='Оборудование: {0}'}" 
-                                               Foreground="#7f8c8d"/>
+                       Foreground="#7f8c8d"/>
                                     <TextBlock Text="{Binding amountguests, StringFormat='Гостей: {0}'}" 
-                                               Foreground="#7f8c8d"/>
+                       Foreground="#7f8c8d"/>
                                 </StackPanel>
 
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <Border Background="#3498db" 
-                                            CornerRadius="4" 
-                                            Padding="8,4">
+                                <!-- Статусы -->
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Border Background="#3498db" CornerRadius="4" Padding="8,4" Margin="0,0,0,5">
                                         <TextBlock Text="{Binding orderstatus}" 
-                                                   Foreground="White" 
-                                                   FontWeight="Bold"
-                                                   FontSize="12"/>
+                           Foreground="White" 
+                           FontWeight="Bold"
+                           FontSize="12"/>
                                     </Border>
-                                    <Border Background="#f1c40f" 
-                                            CornerRadius="4" 
-                                            Padding="8,4" 
-                                            Margin="0,5,0,0">
+                                    <Border Background="#f1c40f" CornerRadius="4" Padding="8,4">
                                         <TextBlock Text="{Binding paymentstatus}" 
-                                                   Foreground="White" 
-                                                   FontWeight="Bold"
-                                                   FontSize="12"/>
+                           Foreground="White" 
+                           FontWeight="Bold"
+                           FontSize="12"/>
                                     </Border>
                                 </StackPanel>
+
+                                <!-- Кнопка редактирования -->
+                                <Border Grid.Column="2" CornerRadius="4" Background="#3498db">
+                                    <Button Content="✏️ Редактировать" 
+                    Background="Transparent"
+                    Foreground="White"
+                    Height="35"
+                    Padding="10,0"
+                    FontSize="12"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="EditOrder_Click"
+                    Tag="{Binding orderid}"/>
+                                </Border>
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+        <!-- Сообщение если нет заказов -->
+        <TextBlock x:Name="txtNoOrders" 
+                   Grid.Row="1"
+                   Text="Нет доступных заказов" 
+                   FontSize="16"
+                   Foreground="#7f8c8d"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visibility="Collapsed"/>
     </Grid>
 </Page>

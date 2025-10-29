@@ -30,12 +30,28 @@ namespace ScienceProgrammProject.UI.Pages
             _mainWindow = mainWindow;
             _context = new ScienceProgrammProjectEntities();
 
-            // Устанавливаем фокус на поле логина
+            // Устанавливаем фокус на поле логина при загрузке
             Loaded += (s, e) => txtLogin.Focus();
 
             // Обработчики для Enter
-            txtLogin.KeyDown += (s, e) => { if (e.Key == System.Windows.Input.Key.Enter) txtPassword.Focus(); };
-            txtPassword.KeyDown += (s, e) => { if (e.Key == System.Windows.Input.Key.Enter) btnLogin_Click(s, e); };
+            txtLogin.KeyDown += TextBox_KeyDown;
+            txtPassword.KeyDown += PasswordBox_KeyDown;
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txtPassword.Focus();
+            }
+        }
+
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -63,8 +79,8 @@ namespace ScienceProgrammProject.UI.Pages
 
             try
             {
-                // Имитация задержки для лучшего UX (можно убрать)
-                await System.Threading.Tasks.Task.Delay(500);
+                // Имитация задержки для лучшего UX
+                await System.Threading.Tasks.Task.Delay(800);
 
                 // Поиск пользователя в базе данных
                 var user = _context.user
@@ -76,7 +92,7 @@ namespace ScienceProgrammProject.UI.Pages
                     // Проверяем статус пользователя
                     if (user.status?.ToLower() == "уволен")
                     {
-                        ShowError("Учетная запись заблокирована");
+                        ShowError("Учетная запись заблокирована. Обратитесь к администратору.");
                         return;
                     }
 
@@ -90,7 +106,7 @@ namespace ScienceProgrammProject.UI.Pages
                 }
                 else
                 {
-                    ShowError("Неверный логин или пароль");
+                    ShowError("Неверный логин или пароль. Проверьте введенные данные.");
                     txtPassword.Password = "";
                     txtPassword.Focus();
                 }

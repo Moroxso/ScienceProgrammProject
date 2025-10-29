@@ -1,4 +1,5 @@
-﻿using ScienceProgrammProject.Data;
+﻿using ScienceProgrammProject.Core.Services;
+using ScienceProgrammProject.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,6 +107,16 @@ namespace ScienceProgrammProject.UI.Windows
 
                 if (userToAdd != null)
                 {
+                    // ПРОВЕРКА: Не назначен ли уже пользователь на другую активную смену
+                    var shiftService = new ShiftService(_context);
+                    var currentShift = shiftService.GetCurrentShiftForUser(userId);
+                    if (currentShift != null && currentShift.shiftid != _currentShift.shiftid)
+                    {
+                        MessageBox.Show($"Сотрудник уже назначен на активную смену ({currentShift.datestart:dd.MM.yyyy} - {currentShift.dateend:dd.MM.yyyy})",
+                                      "Конфликт смен", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+
                     // Создаем новую запись о назначении на смену
                     var newUserList = new userlist
                     {
@@ -116,7 +127,6 @@ namespace ScienceProgrammProject.UI.Windows
                     _context.userlist.Add(newUserList);
                     _context.SaveChanges();
 
-                    // Перезагружаем данные
                     LoadData();
 
                     MessageBox.Show($"Сотрудник {userToAdd.lastname} {userToAdd.firstname} добавлен на смену",

@@ -104,8 +104,14 @@ namespace ScienceProgrammProject.UI.Pages
             var button = (Button)sender;
             int userId = (int)button.Tag;
 
-            MessageBox.Show($"Редактирование сотрудника ID: {userId} будет реализовано позже",
-                          "В разработке", MessageBoxButton.OK, MessageBoxImage.Information);
+            var user = _context.user.Find(userId);
+            if (user != null)
+            {
+                var editWindow = new EditUserWindow(_context, user);
+                editWindow.Owner = Application.Current.MainWindow;
+                editWindow.Closed += (s, args) => LoadUsers(); // Обновляем список после закрытия
+                editWindow.ShowDialog();
+            }
         }
     }
 }

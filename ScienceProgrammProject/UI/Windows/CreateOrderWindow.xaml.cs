@@ -78,6 +78,15 @@ namespace ScienceProgrammProject.UI.Windows
                 _context.order.Add(newOrder);
                 _context.SaveChanges();
 
+                // ПРИВЯЗКА ЗАКАЗА К ПОЛЬЗОВАТЕЛЮ (НОВАЯ ФУНКЦИОНАЛЬНОСТЬ)
+                var orderUserList = new orderuserlist
+                {
+                    orderid = newOrder.orderid,
+                    userid = _currentUser.userid
+                };
+                _context.orderuserlist.Add(orderUserList);
+                _context.SaveChanges();
+
                 MessageBox.Show("Заказ успешно создан!", "Успех",
                               MessageBoxButton.OK, MessageBoxImage.Information);
 
