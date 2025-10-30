@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject"
         mc:Ignorable="d"
-        Title="Система управления научными конференциями" Height="700" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Система управления научными конференциями" Height="1920" Width="1080" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="SingleBorderWindow">
 
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <!-- Верхняя панель инструментов -->
-        <Border Grid.Row="0" Background="#2c3e50" Padding="10">
+        <Border Grid.Row="0" Background="#2c3e50" Padding="15">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -23,7 +23,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Логотип и название -->
+                <!-- Логотип -->
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock Text="🎯" FontSize="20" Margin="0,0,10,0"/>
                     <TextBlock Text="Конференции+" 
@@ -32,34 +32,33 @@
                                FontWeight="Bold"/>
                 </StackPanel>
 
-                <!-- Основное меню навигации -->
+                <!-- Основное меню навигации с анимированными кнопками -->
                 <StackPanel Grid.Column="1" 
                             Orientation="Horizontal" 
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
                     <Button x:Name="btnDashboard" 
-                            Content="Главная" 
-                            Style="{StaticResource WebLikeToolbarButton}"
-                            Foreground="White"
+                            Content="🏠 Главная" 
+                            Margin="0 0 15 0"
+                            Style="{StaticResource AnimatedNavButton}"
                             Click="btnDashboard_Click"/>
 
                     <Button x:Name="btnOrders" 
-                            Content="Заказы" 
-                            Style="{StaticResource WebLikeToolbarButton}"
-                            Foreground="White"
+                            Content="📋 Заказы" 
+                            Margin="0 0 15 0"
+                            Style="{StaticResource AnimatedNavButton}"
                             Click="btnOrders_Click"/>
 
                     <Button x:Name="btnShifts" 
-                            Content="Смены" 
-                            Style="{StaticResource WebLikeToolbarButton}"
-                            Foreground="White"
+                            Content="🕐 Смены" 
+                            Margin="0 0 15 0"
+                            Style="{StaticResource AnimatedNavButton}"
                             Click="btnShifts_Click"/>
 
                     <Button x:Name="btnUsers" 
-                            Content="Сотрудники" 
-                            Style="{StaticResource WebLikeToolbarButton}"
-                            Foreground="White"
+                            Content="👥 Сотрудники" 
+                            Style="{StaticResource AnimatedNavButton}"
                             Click="btnUsers_Click"/>
                 </StackPanel>
 
@@ -72,16 +71,20 @@
                                Foreground="White" 
                                Margin="0,0,15,0"
                                VerticalAlignment="Center"/>
+
                     <Button x:Name="btnLogout" 
-                            Content="Выйти" 
-                            Style="{StaticResource WebLikeToolbarButton}"
-                            Foreground="White"
+                            Content="🚪 Выйти" 
+                            Style="{StaticResource AnimatedDangerButton}"
                             Click="btnLogout_Click"
-                            Visibility="Collapsed"/>
+                            Visibility="Collapsed"
+                            Width="80"
+                            Margin="15 0 5 0"/>
+
                     <Button x:Name="btnLogin" 
-                            Content="Войти" 
-                            Style="{StaticResource WebLikeToolbarButton}"
-                            Foreground="White"
+                            Content="🔑 Войти" 
+                            Width="80"
+                            Margin="15 0 5 0"
+                            Style="{StaticResource AnimatedPrimaryButton}"
                             Click="btnLogin_Click"/>
                 </StackPanel>
             </Grid>

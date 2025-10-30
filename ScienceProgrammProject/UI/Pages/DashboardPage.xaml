@@ -5,134 +5,218 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ScienceProgrammProject.UI.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="800"
       Title="DashboardPage">
 
     <Grid Background="#ecf0f1">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="20">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="20">
+            <StackPanel>
 
                 <!-- Приветствие -->
-                <Border Background="White" CornerRadius="8" Padding="25" Margin="0,0,0,15">
+                <Border Style="{StaticResource AnimatedCard}" Margin="0,0,0,20">
                     <TextBlock x:Name="txtWelcome" 
                               Text="Добро пожаловать!" 
-                              FontSize="24" 
+                              FontSize="20" 
                               FontWeight="Bold"
-                              Foreground="#2c3e50"/>
+                              Foreground="#2c3e50"
+                              Padding="10"
+                              TextAlignment="Center"/>
                 </Border>
 
                 <!-- Статистика -->
-                <TextBlock Text="Статистика" 
+                <TextBlock Text="📊 Статистика" 
                           FontSize="18" 
                           FontWeight="Bold"
                           Foreground="#2c3e50"
-                          Margin="0,0,0,10"/>
+                          Margin="0,0,0,15"/>
 
                 <WrapPanel>
-                    <!-- Карточка заказов -->
-                    <Border Background="White" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="200">
+                    <!-- Карточка всех заказов -->
+                    <Border Style="{StaticResource StatCard}">
                         <StackPanel>
                             <TextBlock Text="Всего заказов" 
                                       Foreground="#7f8c8d"
-                                      FontSize="14"/>
+                                      FontSize="13"
+                                      FontWeight="SemiBold"/>
                             <TextBlock x:Name="txtTotalOrders" 
                                       Text="0" 
-                                      FontSize="24" 
+                                      FontSize="28" 
                                       FontWeight="Bold"
                                       Foreground="#2c3e50"
+                                      Margin="0,8,0,0"/>
+                            <TextBlock Text="за все время" 
+                                      Foreground="#95a5a6"
+                                      FontSize="11"
                                       Margin="0,5,0,0"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Карточка активных заказов -->
-                    <Border Background="White" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="200">
+                    <Border Style="{StaticResource StatCard}">
                         <StackPanel>
                             <TextBlock Text="Активные заказы" 
                                       Foreground="#7f8c8d"
-                                      FontSize="14"/>
+                                      FontSize="13"
+                                      FontWeight="SemiBold"/>
                             <TextBlock x:Name="txtActiveOrders" 
                                       Text="0" 
-                                      FontSize="24" 
+                                      FontSize="28" 
                                       FontWeight="Bold"
-                                      Foreground="#27ae60"
+                                      Foreground="#3498db"
+                                      Margin="0,8,0,0"/>
+                            <TextBlock Text="требуют внимания" 
+                                      Foreground="#95a5a6"
+                                      FontSize="11"
                                       Margin="0,5,0,0"/>
                         </StackPanel>
                     </Border>
 
                     <!-- Карточка готовых заказов -->
-                    <Border Background="White" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="200">
+                    <Border Style="{StaticResource StatCard}">
                         <StackPanel>
                             <TextBlock Text="Готовые заказы" 
                                       Foreground="#7f8c8d"
-                                      FontSize="14"/>
+                                      FontSize="13"
+                                      FontWeight="SemiBold"/>
                             <TextBlock x:Name="txtReadyOrders" 
                                       Text="0" 
-                                      FontSize="24" 
+                                      FontSize="28" 
                                       FontWeight="Bold"
-                                      Foreground="#3498db"
+                                      Foreground="#27ae60"
+                                      Margin="0,8,0,0"/>
+                            <TextBlock Text="успешно выполнены" 
+                                      Foreground="#95a5a6"
+                                      FontSize="11"
+                                      Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Карточка сотрудников -->
+                    <Border Style="{StaticResource StatCard}">
+                        <StackPanel>
+                            <TextBlock Text="Активных сотрудников" 
+                                      Foreground="#7f8c8d"
+                                      FontSize="13"
+                                      FontWeight="SemiBold"/>
+                            <TextBlock x:Name="txtActiveUsers" 
+                                      Text="0" 
+                                      FontSize="28" 
+                                      FontWeight="Bold"
+                                      Foreground="#9b59b6"
+                                      Margin="0,8,0,0"/>
+                            <TextBlock Text="в системе" 
+                                      Foreground="#95a5a6"
+                                      FontSize="11"
                                       Margin="0,5,0,0"/>
                         </StackPanel>
                     </Border>
                 </WrapPanel>
 
                 <!-- Быстрые действия -->
-                <TextBlock Text="Быстрые действия" 
+                <TextBlock Text="⚡ Быстрые действия" 
                           FontSize="18" 
                           FontWeight="Bold"
                           Foreground="#2c3e50"
-                          Margin="0,20,0,10"/>
+                          Margin="0,30,0,15"/>
 
                 <WrapPanel>
-                    <Border Background="White" CornerRadius="8" Padding="20" Margin="0,0,10,10" Width="180">
+                    <!-- Быстрое действие: Заказы -->
+                    <Border Style="{StaticResource QuickActionCard}">
                         <Button x:Name="btnQuickOrders" 
-                                Content="📋 Заказы" 
-                                Background="Transparent"
-                                Foreground="#2c3e50"
-                                FontSize="14"
-                                FontWeight="SemiBold"
-                                BorderThickness="0"
-                                Cursor="Hand"
+                                Content="📋"
+                                Tag="Просмотр заказов"
+                                Style="{StaticResource QuickActionButton}"
                                 Click="btnQuickOrders_Click"/>
                     </Border>
 
-                    <!-- Для организатора -->
+                    <!-- Быстрое действие: Создать заказ (для организатора) -->
                     <Border x:Name="borderQuickCreate" 
-                            Background="White" 
-                            CornerRadius="8" 
-                            Padding="20" 
-                            Margin="0,0,10,10" 
-                            Width="180"
+                            Style="{StaticResource QuickActionCard}"
                             Visibility="Collapsed">
                         <Button x:Name="btnQuickCreateOrder" 
-                                Content="➕ Создать заказ" 
-                                Background="Transparent"
-                                Foreground="#2c3e50"
-                                FontSize="14"
-                                FontWeight="SemiBold"
-                                BorderThickness="0"
-                                Cursor="Hand"
+                                Content="➕"
+                                Tag="Создать заказ"
+                                Style="{StaticResource QuickActionButton}"
                                 Click="btnQuickCreateOrder_Click"/>
                     </Border>
 
-                    <!-- Для заведующего -->
+                    <!-- Быстрое действие: Сотрудники (для заведующего) -->
                     <Border x:Name="borderQuickUsers" 
-                            Background="White" 
-                            CornerRadius="8" 
-                            Padding="20" 
-                            Margin="0,0,10,10" 
-                            Width="180"
+                            Style="{StaticResource QuickActionCard}"
                             Visibility="Collapsed">
                         <Button x:Name="btnQuickUsers" 
-                                Content="👥 Сотрудники" 
-                                Background="Transparent"
-                                Foreground="#2c3e50"
-                                FontSize="14"
-                                FontWeight="SemiBold"
-                                BorderThickness="0"
-                                Cursor="Hand"
+                                Content="👥"
+                                Tag="Управление сотрудниками"
+                                Style="{StaticResource QuickActionButton}"
                                 Click="btnQuickUsers_Click"/>
                     </Border>
+
+                    <!-- Быстрое действие: Смены (для заведующего) -->
+                    <Border x:Name="borderQuickShifts" 
+                            Style="{StaticResource QuickActionCard}"
+                            Visibility="Collapsed">
+                        <Button x:Name="btnQuickShifts" 
+                                Content="🕐"
+                                Tag="Управление сменами"
+                                Style="{StaticResource QuickActionButton}"
+                                Click="btnQuickShifts_Click"/>
+                    </Border>
+
+                    <!-- Быстрое действие: Техник (для техника) -->
+                    <Border x:Name="borderQuickTechnician" 
+                            Style="{StaticResource QuickActionCard}"
+                            Visibility="Collapsed">
+                        <Button x:Name="btnQuickTechnician" 
+                                Content="🔧"
+                                Tag="Мои заказы"
+                                Style="{StaticResource QuickActionButton}"
+                                Click="btnQuickTechnician_Click"/>
+                    </Border>
+
+                    <!-- Быстрое действие: Отчеты -->
+                    <Border Style="{StaticResource QuickActionCard}">
+                        <Button x:Name="btnQuickReports" 
+                                Content="📊"
+                                Tag="Статистика и отчеты"
+                                Style="{StaticResource QuickActionButton}"
+                                Click="btnQuickReports_Click"/>
+                    </Border>
                 </WrapPanel>
+
+                <!-- Последние активности -->
+                <TextBlock Text="🕒 Последние активности" 
+                          FontSize="18" 
+                          FontWeight="Bold"
+                          Foreground="#2c3e50"
+                          Margin="0,30,0,15"/>
+
+                <Border Style="{StaticResource AnimatedCard}">
+                    <StackPanel>
+                        <ItemsControl x:Name="RecentActivitiesItemsControl">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="#f8f9fa" 
+                                            CornerRadius="6" 
+                                            Padding="12" 
+                                            Margin="0,4">
+                                        <TextBlock Text="{Binding}" 
+                                                   Foreground="#2c3e50"
+                                                   FontSize="13"
+                                                   TextWrapping="Wrap"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <TextBlock x:Name="txtNoActivities" 
+                                  Text="Активности не найдены" 
+                                  Foreground="#95a5a6"
+                                  FontSize="13"
+                                  HorizontalAlignment="Center"
+                                  Margin="0,10,0,0"
+                                  Visibility="Collapsed"/>
+                    </StackPanel>
+                </Border>
 
             </StackPanel>
         </ScrollViewer>

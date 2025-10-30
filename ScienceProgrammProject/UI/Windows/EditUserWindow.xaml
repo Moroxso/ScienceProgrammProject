@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
         mc:Ignorable="d"
-        Title="EditUserWindow" Height="800" Width="800"         WindowStartupLocation="CenterOwner"
+        Title="Редактирование сотрудника" Height="800" Width="800"         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
-    <Grid Background="#ecf0f1" Margin="20">
+    <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -150,13 +150,15 @@
 
             <Border Grid.Column="1" CornerRadius="4" Background="#95a5a6" Margin="0,0,10,0">
                 <Button Content="Отмена" 
-                        Style="{StaticResource SecondaryButton}"
+                        Style="{StaticResource AnimatedSecondaryButton}"
+                        Width="120"
                         Click="btnCancel_Click"/>
             </Border>
 
             <Border Grid.Column="2" CornerRadius="4" Background="#27ae60">
                 <Button Content="Сохранить" 
-                        Style="{StaticResource SuccessButton}"
+                        Style="{StaticResource AnimatedSuccessButton}"
+                        Width="120"
                         Click="btnSave_Click"/>
             </Border>
         </Grid>

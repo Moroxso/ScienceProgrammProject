@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
         mc:Ignorable="d"
-        Title="AddUserWindow" Height="550" Width="500">
-    <Grid Background="#ecf0f1" Margin="20">
+        Title="Добавление нового сотрудника" Height="800" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -105,9 +105,11 @@
                             <Border Grid.Column="1" CornerRadius="4" Background="#3498db">
                                 <Button x:Name="btnGeneratePassword" 
                                         Content="🎲 Сгенерировать" 
+                                        Style="{StaticResource AnimatedPrimaryButton}"
                                         Background="Transparent"
                                         Foreground="White"
                                         Height="30"
+                                        Width="160"
                                         Padding="10,0"
                                         FontSize="12"
                                         FontWeight="SemiBold"
@@ -133,6 +135,8 @@
             <Border Grid.Column="1" CornerRadius="4" Background="#95a5a6" Margin="0,0,10,0">
                 <Button x:Name="btnCancel" 
                         Content="Отмена" 
+                        Style="{StaticResource AnimatedSecondaryButton}"
+                        Width="100"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"
@@ -146,8 +150,10 @@
             <Border Grid.Column="2" CornerRadius="4" Background="#27ae60">
                 <Button x:Name="btnAdd" 
                         Content="Добавить сотрудника" 
+                        Style="{StaticResource AnimatedSuccessButton}"
                         Background="Transparent"
                         Foreground="White"
+                        Width="180"
                         Height="40"
                         Padding="20,0"
                         FontWeight="SemiBold"

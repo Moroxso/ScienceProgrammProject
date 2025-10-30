@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
         mc:Ignorable="d"
-        Title="EditOrderWindow" Height="720" Width="800"        WindowStartupLocation="CenterOwner"
+        Title="Редактирование заказа" Height="720" Width="800"        WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     
-    <Grid Background="#ecf0f1" Margin="20">
+    <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -125,9 +125,11 @@
             <Border Grid.Column="1" CornerRadius="4" Background="#3498db" Margin="0,0,10,0">
                 <Button x:Name="btnMarkInProgress" 
                         Content="🔄 В работу" 
+                        Style="{StaticResource AnimatedPrimaryButton}"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"
+                        Width="120"
                         Padding="15,0"
                         FontWeight="SemiBold"
                         BorderThickness="0"
@@ -138,6 +140,8 @@
             <Border Grid.Column="2" CornerRadius="4" Background="#27ae60" Margin="0,0,10,0">
                 <Button x:Name="btnMarkReady" 
                         Content="✅ Готов" 
+                        Style="{StaticResource AnimatedSuccessButton}"
+                        Width="120"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"
@@ -151,6 +155,8 @@
             <Border Grid.Column="3" CornerRadius="4" Background="#95a5a6">
                 <Button x:Name="btnSave" 
                         Content="💾 Сохранить" 
+                        Style="{StaticResource AnimatedSecondaryButton}"
+                        Width="120"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"

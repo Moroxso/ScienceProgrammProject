@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
         mc:Ignorable="d"
-        Title="TechnicianOrderWindow" Height="450" Width="800"         WindowStartupLocation="CenterOwner"
+        Title="Управление подготовкой заказа" Height="500" Width="800"         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
-    <Grid Background="#ecf0f1" Margin="20">
+    <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -73,6 +73,8 @@
                     <Border CornerRadius="4" Background="#3498db" Margin="0,0,10,0">
                         <Button x:Name="btnMarkInProgress" 
                                 Content="🔄 Взять в работу" 
+                                Style="{StaticResource AnimatedPrimaryButton}"
+                                Width="160"
                                 Background="Transparent"
                                 Foreground="White"
                                 Height="40"
@@ -86,6 +88,8 @@
                     <Border CornerRadius="4" Background="#27ae60">
                         <Button x:Name="btnMarkReady" 
                                 Content="✅ Завершить подготовку" 
+                                Style="{StaticResource AnimatedSuccessButton}"
+                                Width="200"
                                 Background="Transparent"
                                 Foreground="White"
                                 Height="40"
@@ -110,6 +114,8 @@
             <Border Grid.Column="1" CornerRadius="4" Background="#95a5a6">
                 <Button x:Name="btnClose" 
                         Content="Закрыть" 
+                        Style="{StaticResource AnimatedSecondaryButton}"
+                        Width="120"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"

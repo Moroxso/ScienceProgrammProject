@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
         mc:Ignorable="d"
-        Title="AssignToShiftWindow" Height="600" Width="800"        WindowStartupLocation="CenterOwner"
+        Title="Назначение сотрудников на смену" Height="600" Width="800"        WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     
-    <Grid Background="#ecf0f1" Margin="20">
+    <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -33,6 +33,7 @@
                 <Border Grid.Column="1" CornerRadius="4" Background="#3498db" Padding="8,4">
                     <TextBlock x:Name="txtShiftInfo" 
                               Text="Смена #0" 
+                              Width="60"
                               Foreground="White" 
                               FontWeight="Bold"/>
                 </Border>
@@ -90,10 +91,12 @@
                                         </StackPanel>
 
                                         <Border Grid.Column="1" CornerRadius="4" Background="#27ae60">
-                                            <Button Content="➕ Добавить" 
+                                            <Button Content="➕ Добавить"
+                                                    Style="{StaticResource AnimatedSuccessButton}"
                                                     Background="Transparent"
                                                     Foreground="White"
                                                     Height="25"
+                                                    Width="100"
                                                     Padding="8,0"
                                                     FontSize="11"
                                                     FontWeight="SemiBold"
@@ -111,7 +114,7 @@
             </Border>
 
             <!-- Разделитель -->
-            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="#bdc3c7"/>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="LightGray"/>
 
             <!-- Сотрудники на смене -->
             <Border Grid.Column="2" Background="White" CornerRadius="8" Padding="15">
@@ -216,6 +219,8 @@
             <Border Grid.Column="1" CornerRadius="4" Background="#95a5a6" Margin="0,0,10,0">
                 <Button x:Name="btnCancel" 
                         Content="Отмена" 
+                        Style="{StaticResource AnimatedSecondaryButton}"
+                        Width="100"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"
@@ -229,6 +234,8 @@
             <Border Grid.Column="2" CornerRadius="4" Background="#27ae60">
                 <Button x:Name="btnSave" 
                         Content="Сохранить изменения" 
+                        Style="{StaticResource AnimatedSuccessButton}"
+                        Width="200"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"

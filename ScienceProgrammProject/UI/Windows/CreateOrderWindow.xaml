@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScienceProgrammProject.UI.Windows"
         mc:Ignorable="d"
-        Title="Создание заказа" Height="520" Width="600"
+        Title="Создание заказа" Height="450" Width="600"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         >
-    <Grid Background="#ecf0f1" Margin="20">
+    <Grid Background="White" Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -96,6 +96,8 @@
             <Border Grid.Column="1" CornerRadius="4" Background="#95a5a6" Margin="0,0,10,0">
                 <Button x:Name="btnCancel" 
                         Content="Отмена" 
+                        Style="{StaticResource AnimatedSecondaryButton}"
+                        Width="100"
                         Background="Transparent"
                         Foreground="White"
                         Height="40"

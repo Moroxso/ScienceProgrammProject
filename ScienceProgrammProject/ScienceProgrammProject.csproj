@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\DataScripts\DatabaseManager.cs" />
+    <Compile Include="Core\DataScripts\IDatabaseService.cs" />
+    <Compile Include="Core\DataScripts\LocalDatabaseService.cs" />
+    <Compile Include="Core\Scripts\PageTransition.cs" />
     <Compile Include="Core\Services\ShiftService.cs" />
     <Compile Include="UI\Pages\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>

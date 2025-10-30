@@ -1,10 +1,14 @@
 ﻿<Application x:Class="ScienceProgrammProject.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ScienceProgrammProject"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:ScienceProgrammProject">
     <Application.Resources>
         <ResourceDictionary>
+
+            <Duration x:Key="FastAnimation">0:0:0.15</Duration>
+            <Duration x:Key="MediumAnimation">0:0:0.3</Duration>
+            <Duration x:Key="SlowAnimation">0:0:0.5</Duration>
+            
             <!-- Стиль для кнопок панели инструментов -->
             <Style x:Key="WebLikeToolbarButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
@@ -75,6 +79,353 @@
                         <Setter Property="Foreground" Value="#7f8c8d"/>
                     </Trigger>
                 </Style.Triggers>
+            </Style>
+
+            <!-- Анимированная основная кнопка -->
+            <Style x:Key="AnimatedPrimaryButton" TargetType="Button">
+                <Setter Property="Background" Value="#3498db"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="#3498db"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Padding" Value="20,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <!-- Анимация при наведении -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#2980b9"
+                                          Duration="0:0:0.2"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#2980b9"
+                                          Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#3498db"
+                                          Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#3498db"
+                                          Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <!-- Эффект при нажатии -->
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#21618c"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#21618c"/>
+                                </Trigger>
+
+                                <!-- Отключенное состояние -->
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="#bdc3c7"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#bdc3c7"/>
+                                    <Setter Property="Foreground" Value="#7f8c8d"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Анимированная успешная кнопка -->
+            <Style x:Key="AnimatedSuccessButton" TargetType="Button">
+                <Setter Property="Background" Value="#27ae60"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="#27ae60"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Padding" Value="20,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#219a52"
+                                          Duration="0:0:0.2"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#219a52"
+                                          Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#27ae60"
+                                          Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#27ae60"
+                                          Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#1e8449"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#1e8449"/>
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="#bdc3c7"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#bdc3c7"/>
+                                    <Setter Property="Foreground" Value="#7f8c8d"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Анимированная опасная кнопка -->
+            <Style x:Key="AnimatedDangerButton" TargetType="Button">
+                <Setter Property="Background" Value="#e74c3c"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="#e74c3c"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Padding" Value="20,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#c0392b"
+                                          Duration="0:0:0.2"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#c0392b"
+                                          Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#e74c3c"
+                                          Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#e74c3c"
+                                          Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#a93226"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#a93226"/>
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="#bdc3c7"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#bdc3c7"/>
+                                    <Setter Property="Foreground" Value="#7f8c8d"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Анимированная второстепенная кнопка -->
+            <Style x:Key="AnimatedSecondaryButton" TargetType="Button">
+                <Setter Property="Background" Value="#95a5a6"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="#95a5a6"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Padding" Value="20,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#7f8c8d"
+                                          Duration="0:0:0.2"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#7f8c8d"
+                                          Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#95a5a6"
+                                          Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#95a5a6"
+                                          Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#616a6b"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#616a6b"/>
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="#bdc3c7"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#bdc3c7"/>
+                                    <Setter Property="Foreground" Value="#7f8c8d"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Анимированная кнопка для панели навигации -->
+            <Style x:Key="AnimatedNavButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Height" Value="36"/>
+                <Setter Property="Padding" Value="15,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="4">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="#34495e"
+                                          Duration="0:0:0.2"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="#3498db"
+                                          Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="Background.Color"
+                                          To="Transparent"
+                                          Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                          Storyboard.TargetProperty="BorderBrush.Color"
+                                          To="Transparent"
+                                          Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#2c3e50"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#2980b9"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
             <!-- Стиль для успешных кнопок -->
@@ -168,7 +519,206 @@
             <Style x:Key="InputField" TargetType="Grid">
                 <Setter Property="Margin" Value="0,0,0,15"/>
             </Style>
-            
+
+            <!-- Стиль для карточек быстрых действий -->
+            <Style x:Key="QuickActionCard" TargetType="Border">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="BorderBrush" Value="#e0e0e0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Width" Value="160"/>
+                <Setter Property="Height" Value="120"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="#3498db"/>
+                        <Setter Property="Background" Value="#f8f9fa"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Анимированная кнопка быстрого действия -->
+            <Style x:Key="QuickActionButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="#2c3e50"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="12"
+                        RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <ScaleTransform x:Name="borderScale" ScaleX="1" ScaleY="1"/>
+                                </Border.RenderTransform>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Иконка -->
+                                    <TextBlock x:Name="icon" 
+                                   Grid.Row="0"
+                                   Text="{TemplateBinding Content}"
+                                   FontSize="32"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="0,15,0,0"/>
+
+                                    <!-- Текст -->
+                                    <TextBlock x:Name="text" 
+                                   Grid.Row="1"
+                                   Text="{TemplateBinding Tag}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,15"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"/>
+                                </Grid>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <!-- Анимация при наведении -->
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <!-- Анимация подъема карточки -->
+                                                <DoubleAnimation Storyboard.TargetName="borderScale"
+                                              Storyboard.TargetProperty="ScaleX"
+                                              To="1.05" Duration="0:0:0.2"/>
+                                                <DoubleAnimation Storyboard.TargetName="borderScale"
+                                              Storyboard.TargetProperty="ScaleY"
+                                              To="1.05" Duration="0:0:0.2"/>
+                                                <!-- Анимация цвета иконки -->
+                                                <ColorAnimation Storyboard.TargetName="icon"
+                                              Storyboard.TargetProperty="Foreground.Color"
+                                              To="#3498db" Duration="0:0:0.2"/>
+                                                <!-- Анимация тени -->
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                              Storyboard.TargetProperty="BorderBrush.Color"
+                                              To="#3498db" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="borderScale"
+                                              Storyboard.TargetProperty="ScaleX"
+                                              To="1" Duration="0:0:0.3"/>
+                                                <DoubleAnimation Storyboard.TargetName="borderScale"
+                                              Storyboard.TargetProperty="ScaleY"
+                                              To="1" Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="icon"
+                                              Storyboard.TargetProperty="Foreground.Color"
+                                              To="#2c3e50" Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                              Storyboard.TargetProperty="BorderBrush.Color"
+                                              To="#e0e0e0" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+
+                                <!-- Эффект при нажатии -->
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#e8f4fd"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#2980b9"/>
+                                    <Setter TargetName="icon" Property="Foreground" Value="#2980b9"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Стиль для карточек статистики -->
+            <Style x:Key="StatCard" TargetType="Border">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderBrush" Value="#e0e0e0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="Margin" Value="5"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="#3498db"/>
+                        <Setter Property="Background" Value="#f8f9fa"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Стиль для анимированных карточек -->
+            <Style x:Key="AnimatedCard" TargetType="Border">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="BorderBrush" Value="#e0e0e0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!-- Анимация подъема -->
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                               To="1.02" Duration="{StaticResource FastAnimation}"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                               To="1.02" Duration="{StaticResource FastAnimation}"/>
+                                    <!-- Анимация тени -->
+                                    <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                              To="#3498db" Duration="{StaticResource FastAnimation}"/>
+                                    <!-- Анимация фона -->
+                                    <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                                              To="#f8f9fa" Duration="{StaticResource FastAnimation}"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                               To="1" Duration="{StaticResource FastAnimation}"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                               To="1" Duration="{StaticResource FastAnimation}"/>
+                                    <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                              To="#e0e0e0" Duration="{StaticResource FastAnimation}"/>
+                                    <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                                              To="White" Duration="{StaticResource FastAnimation}"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ScienceProgrammProject.UI.Pages;
+using ScienceProgrammProject.Core.DataScripts;
 
 namespace ScienceProgrammProject
 {
@@ -29,7 +30,7 @@ namespace ScienceProgrammProject
         public MainWindow()
         {
             InitializeComponent();
-            _context = new ScienceProgrammProjectEntities();
+            _context = DatabaseManager.GetContext();
 
             // Загружаем страницу авторизации при старте
             NavigateToLoginPage();
@@ -132,7 +133,7 @@ namespace ScienceProgrammProject
             }
         }
 
-        private void btnShifts_Click(object sender, RoutedEventArgs e)
+        public void btnShifts_Click(object sender, RoutedEventArgs e)
         {
             if (CurrentUser?.userroleid == 1) // Только заведующий
             {

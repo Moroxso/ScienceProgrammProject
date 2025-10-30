@@ -100,6 +100,7 @@
                         Background="#3498db">
                     <Button x:Name="btnLogin" 
                             Content="Войти в систему" 
+                            Style="{StaticResource AnimatedPrimaryButton}"
                             Background="Transparent"
                             Foreground="White" 
                             Height="48"
@@ -108,21 +109,6 @@
                             BorderThickness="0"
                             Cursor="Hand"
                             Click="btnLogin_Click">
-
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#2980b9"/>
-                                    </Trigger>
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter Property="Background" Value="#bdc3c7"/>
-                                        <Setter Property="Foreground" Value="#7f8c8d"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                     </Button>
                 </Border>
 

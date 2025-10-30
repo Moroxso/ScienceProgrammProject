@@ -31,8 +31,9 @@
 
                 <Button x:Name="btnCreateOrder" 
                         Grid.Column="1" 
+                        Width="120"
                         Content="➕ Создать заказ" 
-                        Style="{StaticResource SuccessButton}"
+                        Style="{StaticResource AnimatedSuccessButton}"
                         Click="btnCreateOrder_Click"/>
             </Grid>
         </Border>
@@ -84,16 +85,18 @@
                                 <!-- Кнопка редактирования -->
                                 <Border Grid.Column="2" CornerRadius="4" Background="#3498db">
                                     <Button Content="✏️ Редактировать" 
-                    Background="Transparent"
-                    Foreground="White"
-                    Height="35"
-                    Padding="10,0"
-                    FontSize="12"
-                    FontWeight="SemiBold"
-                    BorderThickness="0"
-                    Cursor="Hand"
-                    Click="EditOrder_Click"
-                    Tag="{Binding orderid}"/>
+                                            Style="{StaticResource AnimatedPrimaryButton}"
+                                            Width="160"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    Height="35"
+                                    Padding="10,0"
+                                    FontSize="12"
+                                    FontWeight="SemiBold"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Click="EditOrder_Click"
+                                    Tag="{Binding orderid}"/>
                                 </Border>
                             </Grid>
                         </Border>
